@@ -36,6 +36,7 @@ $(function() {
 	
 	<h1>WebSite</h1>
 	<ul>
+		<!-- 由于json格式的文件报错所以资源已经被删除了 -->
 		<li><a href="files/baidu.json">百度一下</a></li>
 		<li><a href="files/google.json">谷歌</a></li>
 	</ul>
