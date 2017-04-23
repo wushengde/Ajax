@@ -18,7 +18,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$(":input[name='username']").change(function(){
+		$(".username").change(function(){
 			var val = $(this).val();
 			val = $.trim(val);
 			
@@ -39,7 +39,7 @@
 <body>
 	<form action="" method="post">
 		
-		UserName:<input type="text" name="username"/>
+		UserName:<input type="text" class="username"/>
 		<br>
 		<div id="message"></div>
 		<br>

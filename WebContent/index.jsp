@@ -46,5 +46,6 @@
 </head>
 <body>
 	<a href="helloAjax.txt">HelloAjax</a>
+	<a href="html/a.html">aaaa</a>
 </body>
 </html>

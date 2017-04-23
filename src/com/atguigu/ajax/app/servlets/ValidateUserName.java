@@ -29,9 +29,8 @@ public class ValidateUserName extends HttpServlet {
 			result="<font color='green'>该用户名可用！</font>";
 			
 		}
-		
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/html");
+		//此行代码解决：浏览器与服务器之间产生的乱码
+		response.setContentType("text/html;charset=utf-8");
 		response.getWriter().print(result);
 		
 	}

@@ -3,6 +3,8 @@ package com.atguigu.ajax.app.servlets;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import javax.servlet.ServletConfig;
@@ -14,14 +16,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.atguigu.ajax.app.beans.Car;
 import com.atguigu.ajax.app.beans.ShoppingCart;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Servlet implementation class AddToCartServlet
  */
-@WebServlet("/addToCart")
-public class AddToCartServlet extends HttpServlet {
+@WebServlet("/html/addToCart2")
+public class AddToCartServlet2 extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -54,7 +57,7 @@ public class AddToCartServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//1.获取请求参数id，price
+/*		//1.获取请求参数id，price
 		String bookName = request.getParameter("id");
 		int price = Integer.parseInt(request.getParameter("price"));
 		//2.获取购物车对象
@@ -66,7 +69,7 @@ public class AddToCartServlet extends HttpServlet {
 			session.setAttribute("sc", sc);
 		}
 		//3.把点击的选项加入到购物车中
-		sc.addToCart(bookName, price);
+		sc.addToCart(bookName, price);*/
 		
 		
 		//4.准备相应的JSON对象: {"bookName":"","totalBookNumber":1,"totalMoney":1}
@@ -82,12 +85,43 @@ public class AddToCartServlet extends HttpServlet {
 			  .append("}");
 */
 		ObjectMapper mapper = new ObjectMapper();
-		String result = mapper.writeValueAsString(sc);
-
-		
+		Car car1=new Car("奥迪1", "2012", "red", "aaaa");
+		Car car2=new Car("奥迪2", "2012", "red", "aaaa");
+		Car car3=new Car("奥迪3", "2012", "red", "aaaa");
+		Car car4=new Car("奥迪4", "2012", "red", "aaaa");
+		Car car5=new Car("奥迪4", "2012", "red", "aaaa");
+		Car car6=new Car("奥迪4", "2012", "red", "aaaa");
+		Car car7=new Car("奥迪4", "2012", "red", "aaaa");
+		Car car8=new Car("奥迪4", "2012", "red", "aaaa");
+		Car car9=new Car("奥迪4", "2012", "red", "aaaa");
+		Car car10=new Car("奥迪4", "2012", "red", "aaaa");
+		Car car11=new Car("奥迪4", "2012", "red", "aaaa");
+		Car car12=new Car("奥迪4", "2012", "red", "aaaa");
+		Car car13=new Car("奥迪4", "2012", "red", "aaaa");
+		Car car14=new Car("奥迪4", "2012", "red", "aaaa");
+		Car car15=new Car("奥迪4", "2012", "red", "aaaa");
+		List<Car> list =new ArrayList<>();
+		list.add(car1);
+		list.add(car2);
+		list.add(car3);
+		list.add(car4);
+		list.add(car5);
+		list.add(car6);
+		list.add(car7);
+		list.add(car8);
+		list.add(car9);
+		list.add(car10);
+		list.add(car11);
+		list.add(car12);
+		list.add(car13);
+		list.add(car14);
+		list.add(car15);
+//		String result ="[{'brand': 'Volkswagen', 'year': 2012, 'color': 'White', 'vin': 'dsad231ff'},{'brand': 'Audi', 'year': 2011, 'color': 'Black', 'vin': 'gwregre345'},{'brand': 'Renault', 'year': 2005, 'color': 'Gray', 'vin': 'h354htr'},{'brand': 'BMW', 'year': 2003, 'color': 'Blue', 'vin': 'j6w54qgh'},{'brand': 'Mercedes', 'year': 1995, 'color': 'White', 'vin': 'hrtwy34'},{'brand': 'Volvo', 'year': 2005, 'color': 'Black', 'vin': 'jejtyj'},{'brand': 'Honda', 'year': 2012, 'color': 'Yellow', 'vin': 'g43gr'},{'brand': 'Jaguar', 'year': 2013, 'color': 'White', 'vin': 'greg34'},{'brand': 'Ford', 'year': 2000, 'color': 'Black', 'vin': 'h54hw5'},{'brand': 'Fiat', 'year': 2013, 'color': 'Red', 'vin': '245t2s'}]";
+		String aString = mapper.writeValueAsString(list);
 		//5.响应的JSON对象
-		response.setContentType("text/javascript");
-		response.getWriter().print(result);
+		response.setContentType("text/javascript;charset=utf-8");
+//		response.setContentType("text/html;");
+		response.getWriter().print(aString);
 	}
 
 }

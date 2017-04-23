@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="jquery-ui.css" />
+<link rel="stylesheet" href="primeui.min.css" />
+<link rel="stylesheet" href="theme.css" />
+<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="jquery-ui.js"></script>
+<script type="text/javascript" src="primeui.min.js"></script>
+ <script type="text/javascript">
+    $(function() {
+        $('#tblremoteeager').puidatatable({
+            caption: 'Remote Restful Webservice - Eager',
+            paginator: {
+                rows: 3
+            },
+            columns: [
+                {field: 'vin', headerText: 'Vin'},
+                {field: 'brand', headerText: 'Brand'},
+                {field: 'year', headerText: 'Year'},
+                {field: 'color', headerText: 'Color'}
+            ],
+            datasource: function(callback) {
+                $.ajax({
+                    type: "GET",
+                    url: 'addToCart2',
+                    dataType: "json",
+                    context: this,
+                    success: function(response) {
+                        callback.call(this, response);
+                    }
+                });
+            }
+        });
+    });
+</script>
+</head>
+<body>
+<div id="tblremoteeager"></div>
+</body>
+</html>
